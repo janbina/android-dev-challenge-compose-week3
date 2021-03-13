@@ -140,6 +140,7 @@ fun Screen3(
             }
             item {
                 Button(
+                    elevation = null,
                     modifier = Modifier
                         .height(48.dp)
                         .fillMaxWidth()

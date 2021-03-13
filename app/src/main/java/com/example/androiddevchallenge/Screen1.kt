@@ -45,7 +45,8 @@ fun Screen1(
 ) {
     Box(
         modifier = Modifier
-            .fillMaxSize().background(MaterialTheme.colors.background)
+            .fillMaxSize()
+            .background(MaterialTheme.colors.background)
     ) {
         Image(
             modifier = Modifier.fillMaxSize(),
@@ -67,7 +68,10 @@ fun Screen1(
                 .padding(bottom = 32.dp)
         ) {
             Button(
-                modifier = Modifier.height(48.dp).weight(1F),
+                elevation = null,
+                modifier = Modifier
+                    .height(48.dp)
+                    .weight(1F),
                 shape = RoundedCornerShape(50),
                 onClick = { navigation.navigate("screen2") },
                 colors = ButtonDefaults.buttonColors(
@@ -79,7 +83,10 @@ fun Screen1(
             }
             HorizontalSpacer(size = 8.dp)
             OutlinedButton(
-                modifier = Modifier.height(48.dp).weight(1F), shape = RoundedCornerShape(50),
+                modifier = Modifier
+                    .height(48.dp)
+                    .weight(1F),
+                shape = RoundedCornerShape(50),
                 onClick = { navigation.navigate("screen2") },
                 colors = ButtonDefaults.outlinedButtonColors(
                     backgroundColor = Color.Transparent,

@@ -125,6 +125,7 @@ fun Screen2(
                 )
                 VerticalSpacer(size = 16.dp)
                 Button(
+                    elevation = null,
                     modifier = Modifier
                         .height(48.dp)
                         .fillMaxWidth()
