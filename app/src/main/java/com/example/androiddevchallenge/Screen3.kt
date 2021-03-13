@@ -209,7 +209,7 @@ fun Chip(text: String, icon: Boolean = false) {
         ),
         border = BorderStroke(1.dp, Color.White)
     ) {
-        Text(text = text)
+        Text(text = text, style = MaterialTheme.typography.body1)
         if (icon) {
             Icon(
                 imageVector = Icons.Default.ExpandMore,
