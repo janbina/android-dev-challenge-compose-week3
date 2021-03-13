@@ -16,46 +16,58 @@
 package com.example.androiddevchallenge
 
 import android.os.Bundle
+import android.view.View
+import android.view.Window
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
+import androidx.core.view.WindowCompat
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.ui.theme.MyTheme
+import dev.chrisbanes.accompanist.insets.ProvideWindowInsets
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            WindowCompat.setDecorFitsSystemWindows(window, false)
+            window.setStatusBarColor(Color.Transparent, false)
             MyTheme {
-                MyApp()
+                ProvideWindowInsets {
+                    MyApp()
+                }
             }
         }
     }
 }
 
-// Start building your app here!
 @Composable
 fun MyApp() {
-    Surface(color = MaterialTheme.colors.background) {
-        Text(text = "Ready... Set... GO!")
+    val navController = rememberNavController()
+    val navigation = NavControllerNavigation(navController)
+    NavHost(navController, startDestination = "screen1") {
+        composable("screen1") { Screen1(navigation = navigation) }
+        composable("screen2") { Screen2(navigation = navigation) }
+        composable("screen3") { Screen3(navigation = navigation) }
     }
 }
 
-@Preview("Light Theme", widthDp = 360, heightDp = 640)
-@Composable
-fun LightPreview() {
-    MyTheme {
-        MyApp()
-    }
-}
+fun Window.setStatusBarColor(
+    color: Color,
+    darkIcons: Boolean,
+) {
+    statusBarColor = color.toArgb()
 
-@Preview("Dark Theme", widthDp = 360, heightDp = 640)
-@Composable
-fun DarkPreview() {
-    MyTheme(darkTheme = true) {
-        MyApp()
+    @Suppress("DEPRECATION")
+    if (darkIcons) {
+        decorView.systemUiVisibility = decorView.systemUiVisibility or
+            View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+    } else {
+        decorView.systemUiVisibility = decorView.systemUiVisibility and
+            View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
     }
 }

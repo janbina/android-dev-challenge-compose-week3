@@ -16,31 +16,41 @@
 package com.example.androiddevchallenge.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Shapes
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 
 private val DarkColorPalette = darkColors(
-    primary = purple200,
-    primaryVariant = purple700,
-    secondary = teal200
+    primary = Color(0xFFe3da00),
+    primaryVariant = Color(0xFFFF0000),
+    secondary = Color(0xFFFF0000),
+    background = Color(0xFF232323),
+    surface = Color(0xFF2d2d2d),
+    onPrimary = Color(0xFF232323),
+    onSecondary = Color(0xFFFF0000),
+    onBackground = Color(0xFFFFFFFF),
+    onSurface = Color(0xFFFFFFFF),
 )
 
 private val LightColorPalette = lightColors(
-    primary = purple500,
-    primaryVariant = purple700,
-    secondary = teal200
-
-        /* Other default colors to override
-    background = Color.White,
-    surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
+    primary = Color(0xFFe3da00),
+    primaryVariant = Color(0xFFFF0000),
+    secondary = Color(0xFFFF0000),
+    background = Color(0xFF322049),
+    surface = Color(0xFFFFFFFF),
+    onPrimary = Color(0xFF232323),
+    onSecondary = Color(0xFFFF0000),
+    onBackground = Color(0xFFFFFFFF),
+    onSurface = Color(0xFF232323),
 )
+
+val CustomGreen = Color(0xFF39a844)
+val CustomRed = Color(0xFFd93c19)
 
 @Composable
 fun MyTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable() () -> Unit) {
@@ -53,7 +63,10 @@ fun MyTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable() (
     MaterialTheme(
         colors = colors,
         typography = typography,
-        shapes = shapes,
+        shapes = Shapes(
+            small = RoundedCornerShape(4.dp),
+            large = RoundedCornerShape(48.dp)
+        ),
         content = content
     )
 }

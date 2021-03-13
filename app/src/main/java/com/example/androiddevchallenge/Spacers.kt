@@ -13,11 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.androiddevchallenge.ui.theme
+package com.example.androiddevchallenge
 
-import androidx.compose.ui.graphics.Color
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.Dp
 
-val purple200 = Color(0xFFBB86FC)
-val purple500 = Color(0xFF6200EE)
-val purple700 = Color(0xFF3700B3)
-val teal200 = Color(0xFF03DAC5)
+@Composable
+fun HorizontalSpacer(
+    size: Dp,
+    modifier: Modifier = Modifier,
+) = Spacer(Modifier.width(size).then(modifier))
+
+@Composable
+fun VerticalSpacer(
+    size: Dp,
+    modifier: Modifier = Modifier,
+) = Spacer(Modifier.height(size).then(modifier))

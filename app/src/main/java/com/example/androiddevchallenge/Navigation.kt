@@ -13,14 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.androiddevchallenge.ui.theme
+package com.example.androiddevchallenge
 
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Shapes
-import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.navigate
 
-val shapes = Shapes(
-    small = RoundedCornerShape(4.dp),
-    medium = RoundedCornerShape(4.dp),
-    large = RoundedCornerShape(0.dp)
-)
+interface Navigation {
+    fun navigateUp()
+    fun navigate(route: String)
+}
+
+class NavControllerNavigation(
+    private val controller: NavController
+) : Navigation {
+    override fun navigateUp() {
+        controller.navigateUp()
+    }
+
+    override fun navigate(route: String) {
+        controller.navigate(route)
+    }
+}
+
+class Dummy : Navigation {
+    override fun navigateUp() {}
+
+    override fun navigate(route: String) {}
+}
