@@ -54,6 +54,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.ui.theme.CustomGreen
 import com.example.androiddevchallenge.ui.theme.CustomRed
+import dev.chrisbanes.accompanist.insets.navigationBarsPadding
 
 @Composable
 fun Screen3(
@@ -192,7 +193,9 @@ fun Screen3(
                 }
             }
             item {
-                Box(modifier = Modifier.fillMaxWidth().background(MaterialTheme.colors.surface).height(16.dp))
+                Box(modifier = Modifier.navigationBarsPadding().fillMaxWidth().height(16.dp).background(MaterialTheme.colors.surface)) {
+                    Text("")
+                }
             }
         }
     }

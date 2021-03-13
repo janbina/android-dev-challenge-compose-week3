@@ -37,6 +37,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import dev.chrisbanes.accompanist.insets.navigationBarsPadding
 
 @Composable
 fun Screen1(
@@ -61,6 +62,7 @@ fun Screen1(
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.BottomStart)
+                .navigationBarsPadding()
                 .padding(horizontal = 16.dp)
                 .padding(bottom = 32.dp)
         ) {
